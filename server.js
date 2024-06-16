@@ -12,7 +12,7 @@ app.use(express.json({limit: "200mb"}));
 
 //initial page to display
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.redirect('/index.html');
 })
 
 server.listen(3000)
@@ -23,9 +23,10 @@ const uri =
 const client = new MongoClient(uri);
 
 //get room data from room-create address
-app.post('/room-create', function(req, res) {
-    const formData = req.body;
-    CreateRoom(formData.roomName, formData.password);
+app.get('/room-create', function(req, res) {
+    res.redirect("/lobby.html");
+    //const formData = req.body;
+    //CreateRoom(formData.roomName, formData.password);
 });
 
 //function to create room, will send the room details to database

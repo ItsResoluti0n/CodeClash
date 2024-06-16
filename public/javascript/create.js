@@ -28,11 +28,11 @@ const createRoom = () => {
         password: password
     };
     fetch("http://localhost:3000/room-create", {    //Webpage URL
-        method: "POST",
+        method: "GET",
         headers: {
         "Content-Type": "application/json",
         },
         //The data being sent converted from JavaScript value to JSON format
         body: JSON.stringify(data)
-    }).then(window.location.href = "lobby.html")
+    })
 }
