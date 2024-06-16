@@ -6,6 +6,19 @@ body {
     font-family: poppins;
 }
 
+button:hover {
+    transform: scale(110%);
+    background-color: rgb(186, 186, 186);
+}
+
+button:active {
+    transform: scale(90%);
+}
+
+button {
+    transition: transform 0.2s, background-color 0.2s !important;
+}
+
 h1 {
     color: white;
     font-size: 64px;
