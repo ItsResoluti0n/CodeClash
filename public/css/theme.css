@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(19, 23, 26);
+    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    font-family: poppins;
+}
+
+h1 {
+    color: white;
+    font-size: 64px;
+}
+
+h2 {
+    color: white;
+    font-size: 46px;
+}

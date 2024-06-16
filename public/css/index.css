@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-button {
+    width: 200px;
+    height: 60px;
+    font-family: poppins;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(19, 23, 26);
+    border-radius: 25px;
+    border: 0px;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-bottom: 40px;
+}
+
+.game-button:hover {
+    transform: scale(110%);
+    background-color: rgb(186, 186, 186);
+}
+
+.game-button:active {
+    transform: scale(90%);
+}

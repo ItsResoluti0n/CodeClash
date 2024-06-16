@@ -1,0 +1,30 @@
+{
+  "name": "codeclash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsResoluti0n/CodeKaisen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsResoluti0n/CodeKaisen/issues"
+  },
+  "homepage": "https://github.com/ItsResoluti0n/CodeKaisen#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
