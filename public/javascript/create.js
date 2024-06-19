@@ -14,25 +14,31 @@ const passActivate = () => {
     }
 }
 
-//creates a room based on the given inputs
-const createRoom = () => {
+//Fetchs the data from the website
+function createRoom(){
     const name = document.getElementById("room-input").value;
-    const password = document.getElementById("password-input").value;
+    let password = document.getElementById("password-input").value;
     const private = document.getElementById("private-check").checked;
     if(!private) {
         password = null
     }
-    //data to be sent to server
+    //Data to be sent
     const data = {
         roomName: name,
-        password: password
+        password: password,
     };
-    fetch("http://localhost:3000/room-create", {    //Webpage URL
-        method: "GET",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        //The data being sent converted from JavaScript value to JSON format
-        body: JSON.stringify(data)
+    fetch("http://localhost:3000/room-create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
     })
-}
+    .then(response => response.json())
+    .then(response => {
+        const result = response.result
+        const id = result.insertedId
+        localStorage.setItem('lobbyId', id)
+        window.location.href = "/lobby.html"
+    })
+};

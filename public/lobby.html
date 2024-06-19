@@ -5,20 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/lobby.css">
     <link rel="stylesheet" href="css/theme.css">
-    <script type="text/javascript" src="javascript/create.js"></script>  
+    <script type="text/javascript" src="javascript/lobby.js"></script>  
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <title>Code Clash</title>
 </head>
-<body onload="passActivate()">
+<body onload="getLobbyDetails()">
     <div id="main-container">
         <h2>Waiting for Opponent</h2>
         <div id="sub-main-container">
             <div id="left-container">
-                <div id="users-cont">
-                    <div class="user"></div>
-                    <div class="user"></div>
+                <div id="profiles-container">
+                    <div id="profile-one" class="profile">
+                        <h2>You</h2>
+                        <img src="images\default-profile-pic.png">
+                    </div>
+                    <div id="profile-two" class="profile">
+                        <h2>Opponent</h2>
+                        <img src="images\default-profile-pic.png">
+                    </div>
                 </div>
                 <label for="room-input">Room Name</label>
                 <input type="text" class="text-input" id="room-input" readonly>
