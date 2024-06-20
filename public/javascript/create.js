@@ -38,7 +38,6 @@ function createRoom(){
     .then(response => {
         const result = response.result
         const id = result.insertedId
-        localStorage.setItem('lobbyId', id)
-        window.location.href = "/lobby.html"
+        window.location.href = "/play/" + id
     })
 };
