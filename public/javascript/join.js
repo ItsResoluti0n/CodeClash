@@ -28,7 +28,7 @@ const populateLobbies = (lobbies) => {
     roomName.innerHTML = element.roomName
     roomCreator.innerHTML = "Placeholder"
     joinButton.innerHTML = "Join"
-    joinButton.onclick = function() {joinLobby(element._id)};
+    joinButton.onclick = function() {joinLobby(element)};
 
     lobbyContainer.appendChild(roomName);
     lobbyContainer.appendChild(roomCreator);
@@ -37,6 +37,13 @@ const populateLobbies = (lobbies) => {
   });
 }
 
-const joinLobby = (roomID) => {
-  window.location.href = "/play/" + roomID
+const joinLobby = (room) => {
+  if(room.password != null){
+    let inputPass = prompt("Enter the password");
+    if (inputPass == room.password) {
+      roomID = room._id
+      window.location.href = "/play/" + roomID
+    }
+  }
+  
 }
