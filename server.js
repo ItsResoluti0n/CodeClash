@@ -96,6 +96,30 @@ async function GetAllLobbies(res) {
 }
 
 app.get('/play/:roomID', (req,res) => {
-  
+
   res.sendFile(path.join(__dirname, 'public', 'lobbyBanning.html'));
 })
+
+app.post('/make-account', (req,res) => {
+  formData = req.body
+  username = formData.username
+  password = formData.password
+  MakeAccount(res, username, password);
+})
+
+async function MakeAccount(res, username, password) {
+  try {
+    await client.connect();
+    const db = client.db("codeclash");
+    const coll = db.collection("accounts");
+
+    account = await coll.insertOne({
+      username: username,
+      password: password
+    })
+    res.json({account: account})
+  }
+  finally {
+    await client.close();
+  }
+}

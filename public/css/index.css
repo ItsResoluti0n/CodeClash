@@ -33,3 +33,109 @@ body {
 .game-button:active {
     transform: scale(90%);
 }
+
+.text-input {
+    margin-bottom: 20px;
+}
+
+.button-close {
+    margin-top: 30px;
+}
+
+#account-container {
+    top: 25px;
+    left: 25px;
+    position: absolute;
+    background-color: #090C0E;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#account-container > p {
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    margin: 0px;
+}
+
+#account-container > button,#signup-form-container > button {
+    font-family: poppins;
+    font-weight: 600;
+    color: rgb(19, 23, 26);
+    border-radius: 25px;
+    border: 0px;
+    transition: transform 0.2s, background-color 0.2s;
+    margin: 5px;
+    font-size: 18px;
+}
+
+#account-container > button:hover, #signup-form-container > button:hover {
+    transform: scale(100%);
+
+}
+
+#account-container > button:active, #signup-form-container > button:active {
+    transform: scale(90%);
+}
+
+#signup {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup-form-container {
+    background-color: rgb(19, 23, 26);
+    display: flex;
+    flex-direction: column;
+    width: 277.5px;
+    height: 256px;      
+    padding: 25px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.form-label {
+    color: white;
+}
+
+#sign-up-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: white;
+    margin: 0px;
+    margin-bottom: 15px;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+#close-button {
+    position: absolute;
+    color: white;
+    top: 30px;
+    right: 23px;
+}
+
+.text-input {
+    height: 30px;
+    border: 0px;
+    border-radius: 15px;
+    font-family: poppins;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+#signup-form-container > button {
+    height: 35px;
+    margin-top: 20px;
+}
