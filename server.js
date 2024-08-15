@@ -28,8 +28,7 @@ server.listen(3000)
 
 
 //connect to mongodb database
-const uri =
-  "mongodb+srv://user:AxulEa1T5bjyK8pl@cluster0.17o94mu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://user:I4O8ikK9fJTVlJ8M@cluster0.17o94mu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const client = new MongoClient(uri);
 
 //get room data from room-create address
@@ -101,10 +100,8 @@ app.get('/play/:roomID', (req,res) => {
 })
 
 app.post('/make-account', (req,res) => {
-  formData = req.body
-  username = formData.username
-  password = formData.password
-  MakeAccount(res, username, password);
+  const formData = req.body
+  MakeAccount(res, formData.username, formData.password);
 })
 
 async function MakeAccount(res, username, password) {
@@ -112,14 +109,33 @@ async function MakeAccount(res, username, password) {
     await client.connect();
     const db = client.db("codeclash");
     const coll = db.collection("accounts");
-
-    account = await coll.insertOne({
-      username: username,
-      password: password
-    })
-    res.json({account: account})
+    const doc = {username: username,password: password}
+    const result = await coll.insertOne(doc)
+    data = {result: result}
+    res.json(data)
   }
   finally {
+    await client.close();
+  }
+}
+
+app.post('/get-account', (req, res) => {
+  const formData = req.body
+  console.log(formData.userID)
+  GetAccount(res, formData.userID)
+})
+
+async function GetAccount(res, userID) {
+  
+  try{
+    await client.connect();
+    const db = client.db("codeclash");
+    const coll = db.collection("accounts");
+    const idObject = new mongoose.Types.ObjectId(userID);
+    const account = await coll.findOne(idObject);
+    data = {result: account}
+    res.json(data)
+  } finally {
     await client.close();
   }
 }

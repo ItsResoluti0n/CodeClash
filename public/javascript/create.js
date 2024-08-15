@@ -17,7 +17,7 @@ const passActivate = () => {
 //Fetchs the data from the website
 function createRoom(){
     const name = document.getElementById("room-input").value;
-    let password = document.getElementById("password-input").value;
+    const password = document.getElementById("password-input").value;
     const private = document.getElementById("private-check").checked;
     if(!private) {
         password = null

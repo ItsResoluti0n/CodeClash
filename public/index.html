@@ -10,11 +10,11 @@
     <script type="text/javascript" src="/javascript/index.js"></script>
     <title>Code Clash</title>
 </head>
-<body>
+<body onload="ifLoggedIn()">
     <div id="account-container">
-        <p>Account</p>
-        <button>Log in</button>
-        <button onclick="signUpFormShow()">Sign up</button>
+        <p id="account-name">Account</p>
+        <button id="button1">Log in</button>
+        <button onclick="signUpFormShow()" id="button2">Sign up</button>
     </div>
     <div id="main-container">
         <h1>Welcome to Code Clash</h1>
@@ -29,7 +29,7 @@
             <input type="text" class="text-input" id="name-input">
             <label for="room-input" class="form-label" >Password</label>
             <input type="text" class="text-input" id="password-input">
-            <button id="finish-button">Finish</button>
+            <button id="finish-button" onclick="signUpSubmit()">Finish</button>
         </div>
     </div>
 </body>
