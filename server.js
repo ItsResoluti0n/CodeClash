@@ -109,7 +109,7 @@ async function MakeAccount(res, username, password) {
     await client.connect();
     const db = client.db("codeclash");
     const coll = db.collection("accounts");
-    const doc = {username: username,password: password}
+    const doc = {_id: username,password: password}
     const result = await coll.insertOne(doc)
     data = {result: result}
     res.json(data)
@@ -131,9 +131,28 @@ async function GetAccount(res, userID) {
     await client.connect();
     const db = client.db("codeclash");
     const coll = db.collection("accounts");
-    const idObject = new mongoose.Types.ObjectId(userID);
-    const account = await coll.findOne(idObject);
+    const doc = {_id: userID}
+    const account = await coll.findOne(doc);
     data = {result: account}
+    res.json(data)
+  } finally {
+    await client.close();
+  }
+}
+
+app.post('/log-in', (req, res) => {
+  const formData = req.body
+  LogIn(res, formData.userID, formData.password)
+})
+
+async function LogIn(res, username, password) {
+  try{
+    await client.connect();
+    const db = client.db("codeclash");
+    const coll = db.collection("accounts");
+    const doc = {_id: username, password: password}
+    const result = await coll.findOne(doc)
+    data = {result: result}
     res.json(data)
   } finally {
     await client.close();
