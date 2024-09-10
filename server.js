@@ -107,12 +107,12 @@ app.post('/make-account', (req,res) => {
 async function MakeAccount(res, username, password) {
   try {
     await client.connect();
-    const result = null
+    let result = null
     const db = client.db("codeclash");
     const coll = db.collection("accounts");
-    const doc = {_id: username}
+    let doc = {_id: username}
     const account = await coll.findOne(doc);
-    if (!account){
+    if (account != null){
       doc = {_id: username,password: password}
       result = await coll.insertOne(doc)
     }
