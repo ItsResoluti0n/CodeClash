@@ -43,8 +43,14 @@ const signUpSubmit = () => {
     }).then(response => response.json())
     .then(response => {
         const result = response.result
-        localStorage.setItem("userId", result.insertedId)
-        detailsFill()
+        if (result){
+            localStorage.setItem("userId", result.insertedId)
+            detailsFill()
+        } else {
+            alert("Username is already in use, please use a different one")
+            signUpFormShow()
+        }
+        
     })
 }
 
@@ -101,6 +107,8 @@ const logOut = () => {
         accountNameTag.innerHTML = name
         button2.removeEventListener('click', logOut)
         button2.addEventListener('cli‌​ck', signUpFormShow)
+
+        document.getElementById("button2").onclick = signUpFormShow
 }
 
 const logInSubmit = () => {
